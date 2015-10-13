@@ -7,15 +7,88 @@
     tools:context="br.com.nffn.launcherterceiraidade.HomeActivity">
 
     <Button
-        android:id="@+id/apps_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="Contatos"
+        android:id="@+id/contatos_button"
+        android:onClick="contatos"
+        android:background="#e5bc33"
+        android:drawableTop="@drawable/user"
+        android:textSize="24dp"
+        android:textColor="#ffffff"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textStyle="bold|normal" />
+
+    <Button
+        android:id="@+id/ligar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="Chamar"
+        android:drawableTop="@drawable/phone"
+        android:onClick="ligar"
+        android:background="#33e563"
+        android:textStyle="bold|normal"
+        android:enabled="true"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btLigar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="S.O.S "
+        android:onClick="sos"
+        android:background="#e53633"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Mais Aplicativos"
-        android:onClick="showApps"
-        />
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="Mensagem"
+        android:drawableTop="@drawable/msg"
+        android:onClick="mensagem"
+        android:id="@+id/msg"
+        android:background="#33b5e5"
+        android:textColor="#ffffff"
+        android:textSize="23dp"
+        android:layout_below="@id/ligar"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textStyle="bold|normal" />
+
+    <Button
+        android:id="@+id/apps_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="Aplicativos"
+        android:drawableTop="@drawable/mais"
+        android:onClick="aplicativos"
+        android:background="#e56333"
+        android:layout_alignWithParentIfMissing="false"
+        android:enabled="true"
+        android:height="50dp"
+        android:contextClickable="false"
+        android:textSize="20dp"
+        android:textStyle="bold|normal"
+        android:textColor="#ffffff"
+        android:maxHeight="30dp"
+        android:layout_below="@id/contatos_button"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:padding="10dp" />
 
 </RelativeLayout>

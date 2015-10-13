@@ -1,29 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.nffn.launcherterceiraidade" >
+    package="br.com.nffn.launcherterceiraidade"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+
+        android:launchMode="singleTask"
+        android:clearTaskOnLaunch="true"
+        android:stateNotNeeded="true"
+
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="br.com.nffn.launcherterceiraidade.HomeActivity"
             android:label="Launcher Terceira Idade"
             android:launchMode="singleTask"
-            android:stateNotNeeded="true"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" >
+            android:excludeFromRecents="true"
+
+            android:resumeWhilePausing="true"
+            android:windowSoftInputMode="adjustPan"
+
+            android:screenOrientation="nosensor">
+
+            <!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >-->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.MONKEY"/>
+                <category android:name="android.intent.category.WP_HOME"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.nffn.launcherterceiraidade.AppsListActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:name="br.com.nffn.launcherterceiraidade.AppsListActivity">
+            <!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >-->
         </activity>
-    </application>
+
+        <!--<activity android:name=".Activity_Help"-->
+            <!--android:label="@string/help">-->
+        <!--</activity>-->
+        <!--<activity android:name=".PackageUIActivity"-->
+            <!--android:label="@string/open_apk_manager"-->
+            <!-->-->
+        <!--</activity>-->
+        <!--<activity android:name=".ToolsMenuActivity"></activity>-->
+</application>
 
 </manifest>

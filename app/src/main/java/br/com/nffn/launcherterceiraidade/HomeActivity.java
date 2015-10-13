@@ -1,11 +1,10 @@
 package br.com.nffn.launcherterceiraidade;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 
 public class HomeActivity extends Activity {
@@ -14,32 +13,40 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        contatosFavoritos(R.layout.activity_home);
     }
 
-    public void showApps(View v){
+    public void aplicativos(View v){
         Intent i = new Intent(this, AppsListActivity.class);
         startActivity(i);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
+    public void contatos(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
+        startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void ligar(View v){
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        startActivity(intent);
     }
+
+    public void sos(View v) {
+        Uri uri = Uri.parse("tel:" + "199");
+        Intent intent = new Intent(Intent.ACTION_DIAL,uri);
+        startActivity(intent);
+    }
+
+    public void mensagem(View v){
+        Intent enviarSMS = new Intent(Intent.ACTION_VIEW);
+        enviarSMS.putExtra("texto da mensagem", "default content");
+        enviarSMS.setType("vnd.android-dir/mms-sms");
+        startActivity(enviarSMS);
+    }
+
+    public void contatosFavoritos(int v){
+
+    }
+
 }
+
